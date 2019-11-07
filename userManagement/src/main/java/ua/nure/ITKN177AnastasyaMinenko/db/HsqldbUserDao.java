@@ -6,6 +6,12 @@ import ua.nure.ITKN179.MaslovskyiMykyta.User;
 import ua.nure.ITKN179.MaslovskyiMykyta.db.Dao;
 
 public class HsqldbUserDao implements Dao<User> {
+	
+	private ConnectionFactory connectionFactory;
+
+	public HsqldbUserDao(ConnectionFactory connectionFactory) {
+        this.connectionFactory = connectionFactory;
+    }
 
 	@Override
 	public User create(User entity) throws DatabaseException {
