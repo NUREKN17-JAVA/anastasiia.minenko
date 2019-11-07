@@ -6,9 +6,10 @@ import java.sql.SQLException;
 
 public class ConnectionFactoryImplement implements ConnectionFactory {
 
-	public ConnectionFactoryImplement() {
-		// TODO Auto-generated constructor stub
-	}
+	private String driver = "org.hsqldb.jdbcDriver";
+	private String url = "jdbc:hsqldb:file:db/usermanagement";
+	private String user = "sa";
+	private String password = "";
 
 	@Override
 	public Connection createConnection() throws DatabaseException {

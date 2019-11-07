@@ -5,7 +5,7 @@ import java.util.Calendar;
 import org.dbunit.DatabaseTestCase;
 import org.dbunit.database.IDatabaseConnection;
 import org.dbunit.dataset.IDataSet;
-
+import org.dbunit.database.DatabaseConnection;
 import ua.nure.ITKN177AnastasyaMinenko.db.DatabaseException;
 import ua.nure.ITKN177AnastasyaMinenko.db.HsqldbUserDao;
 import ua.nure.ITKN177AnastasyaMinenko.User;
@@ -40,21 +40,21 @@ public class HsqldbUserDaoTest extends DatabaseTestCase {
 
 	}
 
-
+	@Override
 	protected void setUp() throws Exception {
-		super.setUp();
+		
 		connectionFactory = new ConnectionFactoryImplement();
 		dao = new HsqldbUserDao(connectionFactory);
 	}
-
+	@Override
 	protected void tearDown() throws Exception {
 		super.tearDown();
 	}
 
 	@Override
 	protected IDatabaseConnection getConnection() throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		connectionFactory = new ConnectionFactoryImplement();
+		return new DatabaseConnection(connectionFactory.createConnection());
 	}
 
 	@Override
